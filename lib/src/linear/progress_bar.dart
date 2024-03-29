@@ -40,7 +40,7 @@ class ProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: thumbRadius / 2),
+      padding: EdgeInsets.symmetric(horizontal: thumbRadius),
       child: CustomPaint(
         size: Size(width, height),
         foregroundPainter: ProgressPainter(
