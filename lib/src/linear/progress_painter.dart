@@ -24,7 +24,11 @@ class ProgressPainter extends CustomPainter {
     paint.color = color;
 
     canvas.drawCircle(
-        Offset(size.width * value, size.height / 2), thumbRadius, paint);
+        Offset(
+            (size.width * value).clamp(thumbRadius, size.width - thumbRadius),
+            size.height / 2),
+        thumbRadius,
+        paint);
     // canvas.clipRRect(RRect.fromRectAndRadius(
     //     Offset.zero & size, Radius.circular(size.height / 2)));
     // canvas.drawRRect(
