@@ -20,7 +20,7 @@ class AnimatedProgressBar extends ImplicitlyAnimatedWidget {
     required this.value,
     this.width = 200.0,
     this.height = 10.0,
-    this.color,
+    required this.color,
     this.gradient,
     this.backgroundColor = Colors.transparent,
     curve = Curves.linear,
@@ -40,7 +40,7 @@ class AnimatedProgressBar extends ImplicitlyAnimatedWidget {
   final Gradient? gradient;
 
   ///progress bar color parameter
-  final Color? color;
+  final Color color;
 
   ///progress bar color parameter
   final Color backgroundColor;
@@ -67,7 +67,6 @@ class _AnimatedBarState extends AnimatedWidgetBaseState<AnimatedProgressBar> {
       height: widget.height,
       gradient: widget.gradient,
       color: widget.color,
-      backgroundColor: widget.backgroundColor,
     );
   }
 

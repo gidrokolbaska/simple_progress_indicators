@@ -16,7 +16,7 @@ class ProgressBarAnimation extends StatefulWidget {
       required this.duration,
       this.width = 200.0,
       this.height = 10.0,
-      this.color,
+      required this.color,
       this.gradient,
       this.backgroundColor = Colors.transparent,
       this.curve = Curves.linear})
@@ -32,7 +32,7 @@ class ProgressBarAnimation extends StatefulWidget {
   final double height;
 
   ///progress bar color
-  final Color? color;
+  final Color color;
 
   ///progress bar gradient
   final Gradient? gradient;
@@ -78,7 +78,6 @@ class _ProgressBarAnimationState extends State<ProgressBarAnimation>
           height: widget.height,
           gradient: widget.gradient,
           color: widget.color,
-          backgroundColor: widget.backgroundColor,
         );
       },
     );

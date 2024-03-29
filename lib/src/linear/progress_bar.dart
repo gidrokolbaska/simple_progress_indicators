@@ -16,18 +16,10 @@ class ProgressBar extends StatelessWidget {
     required this.value,
     this.width = 200.0,
     this.height = 10.0,
-    this.color,
-    this.backgroundColor = Colors.transparent,
+    required this.color,
     this.gradient,
-  })  : assert(
-          gradient == null || color == null,
-          'Cannot provide both a color and a gradient',
-        ),
-        assert(
-          gradient != null || color != null,
-          'Need to provide color or gradient',
-        ),
-        super(key: key);
+    this.thumbRadius = 10,
+  }) : super(key: key);
 
   ///progress bar width
   final double width;
@@ -42,22 +34,23 @@ class ProgressBar extends StatelessWidget {
   final Gradient? gradient;
 
   ///progress bar color parameter
-  final Color? color;
-
-  ///progress bar color parameter
-  final Color backgroundColor;
+  final Color color;
+  final double thumbRadius;
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      size: Size(width, height),
-      foregroundPainter: ProgressPainter(
-        value: value!,
-        color: color,
-        gradient: gradient,
-      ),
-      painter: BackgroundPainter(
-        backgroundColor: backgroundColor,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: thumbRadius / 2),
+      child: CustomPaint(
+        size: Size(width, height),
+        foregroundPainter: ProgressPainter(
+          value: value!,
+          color: color,
+          thumbRadius: thumbRadius,
+        ),
+        painter: BackgroundPainter(
+          gradient: gradient,
+        ),
       ),
     );
   }
